@@ -40,28 +40,3 @@ function fullFill(A1, A2, A3, B1, B2, B3) {
 let result = fullFill(mostValua, midlleValua, lowestValua, mostCapacity, midlleCapacity, lowestCapacity);
 alert(`В лучшем случае вы "заработаете" ${result} рублей` );
 
-// let mostValua = 0;
-// if (A1 >= A2 && A1 >= A3) {
-// 	mostValua = A1;
-// } else if (A2 >= A1 && A2 >= A3) {
-// 	mostValua = A2;
-// } else {
-// 	mostValua = A3;
-// }
-// let midlleValua = 0;
-// if (A1 < A2 && A1 > A3) {
-// 	midlleValua = A1;
-// } else if (A2 < A1 && A2 > A3) {
-// 	midlleValua = A2;
-// } else {
-// 	midlleValua = A3;
-// }
-// let lowestValua = 0;
-// if (A1 < A2 && A1 < A3) {
-// 	lowestValua = A1;
-// } else if (A2 < A1 && A2 < A3) {
-// 	lowestValua = A2;
-// } else {
-// 	lowestValua = A3;
-// }
-// console.log(mostValua, midlleValua, lowestValua);
