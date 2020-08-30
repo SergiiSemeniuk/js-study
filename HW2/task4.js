@@ -217,95 +217,95 @@
 
 // 10. Запросить дату (день, месяц, год) и вывести следующую за ней дату. 
 // Учтите возможность перехода на следующий месяц, год, а также високосный год
-const inputDate = prompt('Введите дату, число.месяц.год:', '22.07.2020');
-let arr = inputDate.split('.', 3);
-console.log(arr);
-const day = +arr[0];
-const month = +arr[1];
-const year = +arr[2];
-console.log(day, month, year);
-function checkLeap(year) {
-	if (year % 400 === 0 ||	year % 4 === 0 && year % 100 !== 0){
-		return 1;
-	}else {
-		return 0;
-	}
-}
-let leapYear = checkLeap(year);
-console.log(leapYear);
+// const inputDate = prompt('Введите дату, число.месяц.год:', '22.07.2020');
+// let arr = inputDate.split('.', 3);
+// console.log(arr);
+// const day = +arr[0];
+// const month = +arr[1];
+// const year = +arr[2];
+// console.log(day, month, year);
+// function checkLeap(year) {
+// 	if (year % 400 === 0 ||	year % 4 === 0 && year % 100 !== 0){
+// 		return 1;
+// 	}else {
+// 		return 0;
+// 	}
+// }
+// let leapYear = checkLeap(year);
+// console.log(leapYear);
 
-function definitionMonth(month) {
-	let month1 = 0;
-	switch(month){
-		case 1 :
-	  	case 3 :
-	  	case 5 :
-	  	case 7 :
-	  	case 8 :
-	    case 10 : {
-	    	month1 = 1;
-	    	break;
-	    }
-	    case 4 :
-	  	case 6 :
-	  	case 9 :
-	  	case 11 :{
-	  		month1 = 2;
-	  		break;
-	  	}
-		case 2 : {
-			month1 = 3;
-			break;
-		}
-		case 12 : {
-			month1 = 4;
-			break;
-		}
-		default : {
-			console.log('дичь');
-		}
-	}
-	return month1;
-}
-let monthNumber = definitionMonth(month);
-console.log(monthNumber);
-let dayNew = 0;
-let monthNew = 0;
-let yearNew = 0;
-if (monthNumber == 1 && day > 0 && day <= 30) {
-	dayNew = day + 1;
-	monthNew = month;
-	yearNew = year;
-}
-if (monthNumber == 1 && day === 31) {
-	dayNew = 1;
-	monthNew = month + 1;
-	yearNew = year;
-}
-if (monthNumber == 2 && day > 0 && day <= 29) {
-	dayNew = day + 1;
-	monthNew = month;
-	yearNew = year;
-}
-if (monthNumber == 2 && day === 30) {
-	dayNew = 1;
-	monthNew = month + 1;
-	yearNew = year;
-}
-if (monthNumber == 3 && day > 0 && day <= 27) {
-	dayNew = day + 1;
-	monthNew = month;
-	yearNew = year;
-}
-if (leapYear === 1 && monthNumber == 3 && day === 28) {
-	dayNew = day + 1;
-	monthNew = month;
-	yearNew = year;
-}
-if (leapYear === 0 && monthNumber == 3 && day === 28) {
-	dayNew = 1;
-	monthNew = month + 1;
-	yearNew = year;
-}
-console.log(dayNew, monthNew, yearNew);
+// function definitionMonth(month) {
+// 	let month1 = 0;
+// 	switch(month){
+// 		case 1 :
+// 	  	case 3 :
+// 	  	case 5 :
+// 	  	case 7 :
+// 	  	case 8 :
+// 	    case 10 : {
+// 	    	month1 = 1;
+// 	    	break;
+// 	    }
+// 	    case 4 :
+// 	  	case 6 :
+// 	  	case 9 :
+// 	  	case 11 :{
+// 	  		month1 = 2;
+// 	  		break;
+// 	  	}
+// 		case 2 : {
+// 			month1 = 3;
+// 			break;
+// 		}
+// 		case 12 : {
+// 			month1 = 4;
+// 			break;
+// 		}
+// 		default : {
+// 			console.log('дичь');
+// 		}
+// 	}
+// 	return month1;
+// }
+// let monthNumber = definitionMonth(month);
+// console.log(monthNumber);
+// let dayNew = 0;
+// let monthNew = 0;
+// let yearNew = 0;
+// if (monthNumber == 1 && day > 0 && day <= 30) {
+// 	dayNew = day + 1;
+// 	monthNew = month;
+// 	yearNew = year;
+// }
+// if (monthNumber == 1 && day === 31) {
+// 	dayNew = 1;
+// 	monthNew = month + 1;
+// 	yearNew = year;
+// }
+// if (monthNumber == 2 && day > 0 && day <= 29) {
+// 	dayNew = day + 1;
+// 	monthNew = month;
+// 	yearNew = year;
+// }
+// if (monthNumber == 2 && day === 30) {
+// 	dayNew = 1;
+// 	monthNew = month + 1;
+// 	yearNew = year;
+// }
+// if (monthNumber == 3 && day > 0 && day <= 27) {
+// 	dayNew = day + 1;
+// 	monthNew = month;
+// 	yearNew = year;
+// }
+// if (leapYear === 1 && monthNumber == 3 && day === 28) {
+// 	dayNew = day + 1;
+// 	monthNew = month;
+// 	yearNew = year;
+// }
+// if (leapYear === 0 && monthNumber == 3 && day === 28) {
+// 	dayNew = 1;
+// 	monthNew = month + 1;
+// 	yearNew = year;
+// }
+// console.log(dayNew, monthNew, yearNew);
 

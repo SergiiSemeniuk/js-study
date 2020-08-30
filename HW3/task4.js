@@ -7,7 +7,7 @@
 // Примітка: Числа можуть бути від 1 до 9. Отже, 1 буде першим словом (а не 0).
 // Якщо вхідний рядок порожній, поверніть порожній рядок. Слова у вхідному рядку будуть містити лише дійсні послідовні числа.
 
-sortingWord(prompt('Enter a string', '4of Fo1r pe6ople g3ood th5e the2'))
+sortingWord(prompt('Enter a string', '4of Fo1r pe6ople g3ood th5e the2'));
 function sortingWord(inString) {
 	let arr = inString.split(' ');
 		let arr1 = [];
@@ -17,3 +17,6 @@ function sortingWord(inString) {
 	}
 		alert(arr1.join(' '));
  }
+
+ // q 
+ // 1. Как работает +/\d+/.exec(arr[i])?
