@@ -1,5 +1,4 @@
 window.addEventListener('click', handler);
-
 function handler(event) {
 	const element = event.toElement;
     if(element.tagName !== 'TD') {
