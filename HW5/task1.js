@@ -48,18 +48,18 @@
 // task1.3
 // Написать функцию, которая заменяет в полученной строке большие буквы на маленькие, 
 // маленькие – на большие, а цифры – на знак нижнего подчеркивания.
-const inputStr = prompt('Напишите строку:', 'JKSLgsdri232380');
-inputStr != false ? replacement(inputStr) : console.log('строка пустая');
-function replacement(str) {
-	let arr = str.split('');
-	console.log(arr);
-	const result = arr.map(function(el){
-		if (!isNaN(el * 1)) {
-			el = '_';
-		}
-		el == el.toUpperCase() ? el = el.toLowerCase() : el = el.toUpperCase();
-    return el;
-	});
-	console.log(result);
-}
+// const inputStr = prompt('Напишите строку:', 'JKSLgsdri232380');
+// inputStr != false ? replacement(inputStr) : console.log('строка пустая');
+// function replacement(str) {
+// 	let arr = str.split('');
+// 	console.log(arr);
+// 	const result = arr.map(function(el){
+// 		if (!isNaN(el * 1)) {
+// 			el = '_';
+// 		}
+// 		el == el.toUpperCase() ? el = el.toLowerCase() : el = el.toUpperCase();
+//     return el;
+// 	});
+// 	console.log(result);
+// }
 
