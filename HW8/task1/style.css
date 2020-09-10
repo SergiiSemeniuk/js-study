@@ -1,0 +1,14 @@
+table {
+  width: 600px;
+  height: 600px;
+  margin: auto;    
+  border-spacing: 0;
+
+}
+
+th {    
+    
+    width: 60px;
+    height: 60px;
+}
+

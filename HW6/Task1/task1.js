@@ -21,6 +21,6 @@ function draw() {
 
 timer = setInterval(draw, 1000);
 setTimeout(() => { clearInterval(timer); 
-	div.innerHTML = '<h2>Заполнение завершено<h2>'; 
+	div1.innerHTML = '<h2>Заполнение завершено<h2>'; 
 }, 100000);
 
