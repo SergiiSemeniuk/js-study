@@ -33,7 +33,7 @@ function changeImage(dir = 'next'){
 		}
 	}	
 	
-	dom.imgContainer.style.marginLeft = -1 * dom.imgWidth * dom.cur + 'px'; 
+	dom.imgContainer.style.left = -1 * dom.imgWidth * dom.cur + 'px'; 
 	dom.btnNext.innerText = `${dom.cur + 1}: Next`;
 	dom.btnPrev.innerText = `${dom.cur + 1}: Prev`;
 }

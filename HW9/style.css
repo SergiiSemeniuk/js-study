@@ -1,19 +1,21 @@
 .images{
 	position: relative;
 	margin: 0;
-	margin-left: 0px,
+	left: 0;
 	font-size: 0;
+	display: flex;
+	flex-direction: row;
 	/*left: 0;*/
 	/*top: 0;*/
 	/*transition: top 2s;*/
-	transition: margin 2s;
+	transition: left 2s;
 
 
 
 
 }
 .slider{
-	width: 800px;
+	width: 700px;
 	height: 480px;
 	overflow: hidden;
 }
