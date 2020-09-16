@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="lrt">
+<head>
+	<meta charset="utf-8">
+	<title>Калькулятор розмитнення авто</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h2 class="head">Калькулятор розмитнення авто</h2>
+
+	<div class="calculator">
+		
+			<div class="choice">
+				<h3>Тип двигуна</h3>
+				<select name="fuel-auto" class="input-fuel">
+					<option value="gasoline">Бензин</option>
+					<option value="diesel">Дизель</option>
+					<option value="electro">Електро</option>
+					<option value="hybrid">Гібрид</option>
+				</select>
+			</div>
+			<div class="choice">
+				<h3>Вік автомобіля</h3>
+				<select name="year-auto" class="input-year">
+					<option value="year1">1</option>
+					<option value="year2">2</option>
+					<option value="year3">3</option>
+					<option value="year4">4</option>
+					<option value="year5">5</option>
+					<option value="year6">6</option>
+					<option value="year7">7</option>
+					<option value="year8">8</option>
+					<option value="year9">9</option>
+					<option value="year10">10</option>
+					<option value="year11">11</option>
+					<option value="year12">12</option>
+					<option value="year13">13</option>
+					<option value="year14">14</option>
+					<option value="year15">Від 15 років</option>
+				</select>
+			</div>
+			<div class="choice">
+				<h3>Об'єм двигуна</h3>
+				<input type="text" class="engine-capacity" placeholder="1600"><b>см<sup>3</sup></b>			
+			</div>
+			<div class="choice1">
+				<h3>Вартість авто</h3>
+				<input id="" type="text" class="price-auto" placeholder="4000">
+				<select class="input-currency">
+					<option value="euro">EUR</option>
+					<option value="dollar">USD</option>					
+					<option value="uah">UAH</option>
+				</select>
+			</div>
+			
+			<div class="choice">
+				<button class="count-button">Розрахувати</button>
+			</div>
+		
+	</div>
+		
+
+	<div class="display-count">
+		<div class="show-count">
+			<h3>Вартість розмитнення:</h3>
+			<h3>Вартість авто із розмитненням:</h3>
+		</div>
+	</div>
+	
+	<script src="main.js"></script>
+</body>
+</html>

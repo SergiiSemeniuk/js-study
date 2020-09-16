@@ -1,0 +1,61 @@
+
+.calculator {
+	/*display: flex;*/
+    position: fixed;
+    left: 30px;
+    top: 50px;
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+    background-color: #A9A9A9;
+    z-index: 1;
+    display: block;
+  	vertical-align: middle;
+}
+.choice{
+
+ margin-left: 20px;
+}
+
+.choice1{
+ display: inline-block;
+ margin-left: 20px;
+}
+
+.choice-engine {
+	/*display: inline-block;*/
+}
+
+.choice .count-button{
+	margin-top: 30px;
+	appearance: none;
+  	border: 0;
+  	border-radius: 5px;
+  	background: #4676D7;
+  	color: #fff;
+  	padding: 8px 16px;
+  	font-size: 16px;
+}
+
+.head{
+	margin-left: 20px;
+}
+
+.display-count{
+	position: fixed;
+    left: 330px;
+    top: 50px;
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+    background-color: #A9A9A9;
+    z-index: 1;
+    display: block;
+  	vertical-align: middle;
+}
+
+.show-count{
+	margin-top: 100px;
+	display: inline-block;
+	
+}
