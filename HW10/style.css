@@ -4,7 +4,7 @@
     position: fixed;
     left: 30px;
     top: 50px;
-    width: 300px;
+    width: 200px;
     height: 400px;
     overflow: auto;
     background-color: #A9A9A9;
@@ -14,16 +14,12 @@
 }
 .choice{
 
- margin-left: 20px;
+ 	margin-left: 20px;
 }
 
 .choice1{
- display: inline-block;
- margin-left: 20px;
-}
-
-.choice-engine {
-	/*display: inline-block;*/
+ 	display: inline-block;
+ 	margin-left: 20px;
 }
 
 .choice .count-button{
@@ -43,19 +39,39 @@
 
 .display-count{
 	position: fixed;
-    left: 330px;
+    left: 240px;
     top: 50px;
-    width: 300px;
+    width: 400px;
     height: 400px;
     overflow: auto;
     background-color: #A9A9A9;
     z-index: 1;
-    display: block;
-  	vertical-align: middle;
+   	vertical-align: middle;
+  	text-align: 20px;
 }
 
 .show-count{
 	margin-top: 100px;
-	display: inline-block;
-	
+	display: inline-flex;
+	margin-left: 20px;
+}
+
+.price-auto{
+	width: 70px;
+}
+
+.engine-capacity{
+	width: 70px;
+}
+
+.input-fuel {
+	width: 75px;
+}
+
+.input-year {
+	width: 75px;
+}
+
+.table {
+	b
 }
