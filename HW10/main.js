@@ -1,9 +1,12 @@
 class Car{
+	url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
+
 	constructor(inpEngine, inpPrice){
 		this.inpFuel = document.querySelector('.input-fuel');
 		this.inpYear = document.querySelector('.input-year');
 		this.inpEngine = inpEngine;
 		this.inpPrice = inpPrice;
+		this.inpBattery = document.querySelector('.battery-capacity');
 		this.inpCurrency = document.querySelector('.input-currency');
 		this.btnCount = document.querySelector('.count-button');
 		this.showCustoms = document.querySelector('.customs');
@@ -11,58 +14,95 @@ class Car{
 		this.showToll = document.querySelector('.toll-show');
 		this.showExcise = document.querySelector('.excise-show');
 		this.showVat = document.querySelector('.VAT-show');
+		this.usdCur = document.querySelector('.usd-currency');
+		this.euroCur = document.querySelector('.euro-currency');
 
-				
+		this.loadExchangeRates();		
 		this.btnCount.addEventListener('click', this.onClick);
 	}
-	
+
+	loadExchangeRates(){
+        fetch(this.url)
+            .then(req => req.json())
+            .then(data => this.showExchangeRates(data));
+    }
+
+	showExchangeRates(data){	
+		[this.doll, this.euro] = data;	
+		this.usdCur.value = this.doll.buy.slice(0,5);
+		this.euroCur.value = this.euro.buy.slice(0,5);
+	}
+
 	onClick = () => {
 		console.log(this);
-		const fuel = this.inpFuel.options.selectedIndex;
-		const year = this.inpYear.options.selectedIndex;
-		const engine = this.inpEngine.value;
-		const price = this.inpPrice.value;
-		const currency = this.inpCurrency.options.selectedIndex;
-		console.log(fuel);
-		console.log(year);
-		console.log(currency);
-		console.log(engine);
-		console.log(price);
-		this.calculate(price, fuel, engine, year);
+		this.fuel = this.inpFuel.options.selectedIndex;
+		this.year = this.inpYear.options.selectedIndex;
+		this.engine = this.inpEngine.value;
+		this.price = this.inpPrice.value;
+		this.currency = this.inpCurrency.value;
+		this.battery = this.inpBattery.value;
+
+		this.calculate();
 	}
-	calculate(price, fuel, engine, year){
-	 	
-	 	let rate = 0;
-	 	switch(fuel){
+
+	calculate(){	 	
+	 	this.rate = 0;
+	 	switch(this.fuel){
 		    case 0 : {
-		        engine < 3000 ? rate = 50 : rate = 100;
-		        console.log(rate);
+		        this.engine < 3000 ? this.rate = 50 : this.rate = 100;		
+		        this.count();      
 		        break;
 		    }
 		    case 1 : {
-		        engine < 3500 ? rate = 75 : rate = 150;
-		        console.log(rate);
+		        this.engine < 3500 ? this.rate = 75 : this.rate = 150;	
+		        this.count();        
+		        break;
+		    }
+		    case 2 : {
+		        this.toll = 0; 
+		        this.excise = Math.round(1 * this.battery);   
+		        this.vat = 0;
+		        this.sumCustoms = this.excise;
+		        this.costCar = Math.round(this.price * 1 + this.sumCustoms);
+		        break;
+		    }
+		    case 3 : {
+		        this.toll = Math.round(this.price * 0.1);
+		        this.excise = 100;   
+		        this.vat = Math.round((this.excise + this.toll + this.price * 1) * 0.2);
+		        this.sumCustoms = Math.round(this.excise + this.toll + this.vat);
+		        this.costCar = Math.round(this.price * 1 + this.sumCustoms);
 		        break;
 		    }
 		    default : {
-	        	rate = 1;
+	        	this.rate = 1;
 	    	}
-		}
-		this.toll = Math.round(price * 0.1);
-		this.excise = Math.round(rate * (engine / 1000) * (year + 1));	
-		this.vat = Math.round((this.excise + this.toll + price * 1) * 0.2);  
-		this.sumCustoms = Math.round(this.excise + this.toll + this.vat);
-		this.costCar = Math.round(price * 1 + this.sumCustoms);
-	
-		this.renderList();
+		}		
+	if (this.currency == '€') {
+		this.renderList(1);
+	}
+	if (this.currency == '$') {
+		this.renderList(this.euro.buy / this.doll.buy);
+	}
+	if (this.currency == '₴') {
+		this.renderList(this.euro.buy*1);
+	}
+		
+	}
+	count(){
+			this.toll = this.price * 0.1;
+			this.excise = this.rate * (this.engine / 1000) * (this.year + 1);	
+			this.vat = (this.excise + this.toll + this.price * 1) * 0.2;  
+			this.sumCustoms = this.excise + this.toll + this.vat;
+			this.costCar = this.price * 1 + this.sumCustoms;
 	}
 
-	renderList(){
-		this.showToll.innerText = `${ this.toll }`;
-		this.showExcise.innerText = `${ this.excise }`;
-		this.showVat.innerText = `${ this.vat }`;
-		this.showCustoms.innerText = `${ this.sumCustoms }`;
-		this.showCost.innerText = `${ this.costCar }`;
+	renderList(carrency){
+		this.showToll.innerText = `${ Math.round(this.toll * carrency) } ${ this.currency }`;
+		this.showExcise.innerText = `${ Math.round(this.excise * carrency) } ${ this.currency }`;
+		this.showVat.innerText = `${ Math.round(this.vat * carrency) } ${ this.currency }`;
+		this.showCustoms.innerText = `${ Math.round(this.sumCustoms * carrency) } ${ this.currency }`;
+		this.showCost.innerText = `${ Math.round(this.costCar * carrency) } ${ this.currency }`;
 	} 
 }
 
@@ -74,9 +114,37 @@ const showCost = document.querySelector('.cost-car');
 const showToll = document.querySelector('.toll-show');
 const showExcise = document.querySelector('.excise-show');
 const showVat = document.querySelector('.VAT-show');
+const inpFuel = document.querySelector('.input-fuel');
+const inpYear = document.querySelector('.input-year');
+const inpYearDiv = document.querySelector('.choice-year');
+const inpEngineDiv = document.querySelector('.choice-engine');
+const inpBatteryDiv = document.querySelector('.choice-battery');
 
+
+inpFuel.addEventListener('click', display); 
+inpFuel.addEventListener('click', clearShow);
 inpEngine.addEventListener('click', clearShow); 	
-inpPrice.addEventListener('click', clearShow);
+inpPrice.addEventListener('click', clearShow); 
+inpYear.addEventListener('click', clearShow); 
+
+function display() {
+	if (inpFuel.options.selectedIndex == 0 || inpFuel.options.selectedIndex == 1) {	
+	inpYearDiv.style.display = "block";
+	inpEngineDiv.style.display = "block";
+	inpBatteryDiv.style.display = "none";
+	}
+	if (inpFuel.options.selectedIndex == 2) {	
+	inpYearDiv.style.display = "none";
+	inpEngineDiv.style.display = "none";
+	inpBatteryDiv.style.display = "block";
+	}
+	if (inpFuel.options.selectedIndex == 3){	
+	inpYearDiv.style.display = "none";
+	inpEngineDiv.style.display = "none";
+	inpBatteryDiv.style.display = "none";
+	}
+	
+}
 
 function clearShow(){
 	showToll.innerText = '';
@@ -92,17 +160,9 @@ function inpCheck(el){
 	el.addEventListener('keyup', ()=> el.value = el.value.replace(/\D/g, ''));
 
 }
-	
-
 
 const car = new Car(inpEngine, inpPrice);
-console.log(car);
 
-// console.log(document.querySelector('.input-fuel'));
-// console.log(document.querySelector('.input-year'));
-// console.log(document.querySelector('.engine-capacity'));
-// console.log(document.querySelector('.price-auto'));
-// console.log(document.querySelector('.input-currency'));
-// console.log(document.querySelector('.count-button'));
-// document.querySelector('.count-button').addEventListener('click', console.log('hello'));
+
+
 

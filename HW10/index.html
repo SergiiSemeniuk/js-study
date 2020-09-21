@@ -6,6 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
+	<div class="exchange-rates">
+		<p>Курс Валют на сьогодні</p>
+		<p class="value">USD:</p>
+		<input type="text" class="usd-currency" value="" readonly>
+		<p class="value">EUR:</p>
+		<input type="text" class="euro-currency" value="" readonly>
+	</div>
 	<h2 class="head">Калькулятор розмитнення авто</h2>
 
 	<div class="calculator">
@@ -19,9 +26,9 @@
 					<option value="hybrid">Гібрид</option>
 				</select>
 			</div>
-			<div class="choice">
+			<div class="choice-year">
 				<h3>Вік автомобіля</h3>
-				<select name="year-auto" class="input-year">
+				<select class="input-year">
 					<option value="year1">1</option>
 					<option value="year2">2</option>
 					<option value="year3">3</option>
@@ -39,17 +46,21 @@
 					<option value="year15">Від 15 років</option>
 				</select>
 			</div>
-			<div class="choice">
+			<div class="choice-engine">
 				<h3>Об'єм двигуна</h3>
 				<input type="text" class="engine-capacity" placeholder="1600"><b>см<sup>3</sup></b>			
+			</div>
+			<div class="choice-battery">
+				<h3>Ємність АКБ</h3>
+				<input type="text" class="battery-capacity" placeholder="100" ><b>кВт⋅г</b>			
 			</div>
 			<div class="choice1">
 				<h3>Вартість авто</h3>
 				<input id="" type="text" class="price-auto" placeholder="4000">
 				<select class="input-currency">
-					<option value="euro">EUR</option>
-					<option value="dollar">USD</option>					
-					<option value="uah">UAH</option>
+					<option value="€">EUR</option>
+					<option value="$">USD</option>					
+					<option value="₴">UAH</option>
 				</select>
 			</div>
 			
@@ -84,7 +95,7 @@
 				</tr>
 				
 			</table>
-			<table id="tab2" class="table2">
+			<table id="tab2" class="table-res">
 				<tr>
 					
 					<td class="toll-show"></td>

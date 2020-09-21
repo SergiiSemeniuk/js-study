@@ -1,9 +1,21 @@
+.exchange-rates{
+	position: fixed;
+    left: 30px;
+    top: 0px;
+    width: 610px;
+    height: 40px;
+    margin: 0;
+    /*padding: 10px;*/
+    background-color: #A9A9A9;
+    z-index: 1;
+    display: inline-flex;
+}
 
 .calculator {
 	/*display: flex;*/
     position: fixed;
     left: 30px;
-    top: 50px;
+    top: 100px;
     width: 200px;
     height: 400px;
     overflow: auto;
@@ -22,6 +34,20 @@
  	margin-left: 20px;
 }
 
+.choice-year{
+	display: block;
+ 	margin-left: 20px;
+}
+.choice-engine{
+	display: block;
+ 	margin-left: 20px;
+}
+.choice-battery{
+	display: none;
+ 	margin-left: 20px;
+
+}
+
 .choice .count-button{
 	margin-top: 30px;
 	appearance: none;
@@ -34,13 +60,15 @@
 }
 
 .head{
-	margin-left: 20px;
+	margin-left: -20px;
+	padding: 40px;
+	/*margin: 10px;*/
 }
 
 .display-count{
 	position: fixed;
     left: 240px;
-    top: 50px;
+    top: 100px;
     width: 400px;
     height: 400px;
     overflow: auto;
@@ -56,11 +84,15 @@
 	margin-left: 20px;
 }
 
+
 .price-auto{
 	width: 70px;
 }
 
 .engine-capacity{
+	width: 70px;
+}
+.battery-capacity{
 	width: 70px;
 }
 
@@ -69,9 +101,21 @@
 }
 
 .input-year {
+	display: block;
 	width: 75px;
 }
 
-.table {
-	b
+.usd-currency{
+	width: 70px;
+	height: 20px;
+	margin: 5px;
+
+}
+.euro-currency{
+	width: 70px;
+	height: 20px;
+	margin: 5px;
+}
+p {
+	margin: 10px;
 }
