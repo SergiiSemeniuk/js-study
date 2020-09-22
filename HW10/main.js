@@ -1,19 +1,19 @@
 class Car{
 	url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
 
-	constructor(inpEngine, inpPrice){
-		this.inpFuel = document.querySelector('.input-fuel');
-		this.inpYear = document.querySelector('.input-year');
+	constructor(){
+		this.inpFuel = inpFuel;
+		this.inpYear = inpYear;
 		this.inpEngine = inpEngine;
 		this.inpPrice = inpPrice;
+		this.showCustoms = showCustoms;
+		this.showCost = showCost;
+		this.showToll = showToll;
+		this.showExcise = showExcise;
+		this.showVat = showVat;
 		this.inpBattery = document.querySelector('.battery-capacity');
 		this.inpCurrency = document.querySelector('.input-currency');
 		this.btnCount = document.querySelector('.count-button');
-		this.showCustoms = document.querySelector('.customs');
-		this.showCost = document.querySelector('.cost-car');
-		this.showToll = document.querySelector('.toll-show');
-		this.showExcise = document.querySelector('.excise-show');
-		this.showVat = document.querySelector('.VAT-show');
 		this.usdCur = document.querySelector('.usd-currency');
 		this.euroCur = document.querySelector('.euro-currency');
 
@@ -78,16 +78,16 @@ class Car{
 	        	this.rate = 1;
 	    	}
 		}		
-	if (this.currency == '€') {
-		this.renderList(1);
-	}
-	if (this.currency == '$') {
-		this.renderList(this.euro.buy / this.doll.buy);
-	}
-	if (this.currency == '₴') {
-		this.renderList(this.euro.buy*1);
-	}
-		
+		if (this.currency == '€') {
+			this.renderList(1);
+		}
+		if (this.currency == '$') {
+			this.renderList(this.euro.buy / this.doll.buy);
+		}
+		if (this.currency == '₴') {
+			this.renderList(this.euro.buy*1);
+		}
+			
 	}
 	count(){
 			this.toll = this.price * 0.1;
@@ -156,12 +156,13 @@ function clearShow(){
 
 inpCheck(inpEngine);
 inpCheck(inpPrice);
+
 function inpCheck(el){
 	el.addEventListener('keyup', ()=> el.value = el.value.replace(/\D/g, ''));
 
 }
 
-const car = new Car(inpEngine, inpPrice);
+const car = new Car();
 
 
 

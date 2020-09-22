@@ -5,14 +5,12 @@
     width: 610px;
     height: 40px;
     margin: 0;
-    /*padding: 10px;*/
     background-color: #A9A9A9;
     z-index: 1;
     display: inline-flex;
 }
 
 .calculator {
-	/*display: flex;*/
     position: fixed;
     left: 30px;
     top: 100px;
@@ -62,7 +60,8 @@
 .head{
 	margin-left: -20px;
 	padding: 40px;
-	/*margin: 10px;*/
+	font-family:  Helvetica;
+
 }
 
 .display-count{
